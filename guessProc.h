@@ -70,6 +70,7 @@ GOptr guess(const std::string& Testword, GOptr ptr, int& Num_blank, int& Num_mis
 		ptr -> letter = get_letter(ptr);
 	}
 	letter = ptr -> letter;
+	cout << letter << endl;
 
 	if (ptr -> link == NULL){
 		GuessOrder_insert(ptr);
@@ -80,6 +81,7 @@ GOptr guess(const std::string& Testword, GOptr ptr, int& Num_blank, int& Num_mis
 		ptr = &(*(ptr -> link))[0];
 	} else {
 		string board = get_board(ptr, Testword, Num_blank);
+		cout << board << endl;
 		vector<GuessOrder>::iterator iter_g = (*(ptr -> link)).begin();
 
 		while (iter_g != (*(ptr -> link)).end()){
@@ -95,6 +97,9 @@ GOptr guess(const std::string& Testword, GOptr ptr, int& Num_blank, int& Num_mis
 			ptr = &(*iter_g);
 		}
 	}
+
+	cout << "Num_blank: " << Num_blank << endl;
+	cout << "Num_missed: " << Num_missed << endl;
 
 	return ptr;
 }
