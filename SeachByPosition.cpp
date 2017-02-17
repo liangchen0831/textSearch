@@ -118,9 +118,10 @@ int main(int argc, char const *argv[])
 	// Go through the test file to check our decision tree
 	string word;
 	while (getline(ifs_test, word)){
-		if (guess(word, Index_root))
-			Num_CorrGues++;
-		Num_Words++;
+		if (!guess(word, Index_root))
+			cout << word << endl;
+		// 	Num_CorrGues++;
+		// Num_Words++;
 	}
 
 	
